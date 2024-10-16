@@ -1,0 +1,16 @@
+<project name="Lab 2" default="generate-javadoc" basedir=".">
+    <property name="doc" value="doc"/>
+    <property name="sourceDir" value="src"/>
+     <target name="generate-javadoc">
+        <mkdir dir="${doc}"/>
+        <javadoc destdir="${doc}" sourcepath="${sourceDir}">
+            <packageset dir="${sourceDir}">
+                <include name="**/*.java"/>
+            </packageset>
+        </javadoc>
+    </target>
+    <target name="delete-doc">
+        <delete dir="${doc}"/>
+    </target>
+    <target name="clean-generate" depends="delete-doc, generate-javadoc"/>
+</project>
